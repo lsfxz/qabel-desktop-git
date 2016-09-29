@@ -1,0 +1,35 @@
+--- qabel-desktop/src/main/java/de/qabel/desktop/Kernel.java	2016-09-29 09:28:35.394077566 +0200
++++ qabel-desktop-pristine/src/main/java/de/qabel/desktop/Kernel.java	2016-09-29 09:24:46.500744233 +0200
+@@ -1,5 +1,6 @@
+ package de.qabel.desktop;
+ 
++import com.sun.javafx.application.HostServicesDelegate;
+ import com.sun.javafx.application.PlatformImpl;
+ import de.qabel.box.storage.AbstractNavigation;
+ import de.qabel.chat.repository.sqlite.ChatClientDatabase;
+@@ -24,10 +25,8 @@
+ import org.slf4j.LoggerFactory;
+ 
+ import javax.swing.*;
+-import java.awt.*;
+ import java.io.FileInputStream;
+ import java.io.FileNotFoundException;
+-import java.net.URI;
+ import java.nio.file.Files;
+ import java.nio.file.Path;
+ import java.nio.file.Paths;
+@@ -84,13 +83,7 @@
+ 
+         initContainer();
+         initGui();
+-        documentLauncher = (url) -> {
+-            try {
+-                Desktop.getDesktop().browse(new URI(url));
+-            } catch (Exception e) {
+-                logger.error(e.getMessage(), e);
+-            }
+-        };
++        documentLauncher = HostServicesDelegate.getInstance(app)::showDocument;
+     }
+ 
+     public void initGui() throws ClassNotFoundException, InstantiationException, IllegalAccessException, UnsupportedLookAndFeelException {

@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+QABEL_HOME="/usr/share/java/qabel-desktop"
+JAPP_HOME="/usr/lib/jvm/default-runtime"
+DEFAULT_JVM_OPTS="-Djdk.launcher.addmods=javafx.deploy -Djava.library.path=${JAPP_HOME}/lib:${QABEL_HOME}"
+APP_NAME="qabel-desktop"
+
+for name in /usr/share/java/${APP_NAME}/*.jar ; do
+  CP=$CP:$name
+done
+
+exec java "${DEFAULT_JVM_OPTS}" -classpath "$CP" de.qabel.desktop.DesktopClient "$@"
