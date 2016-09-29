@@ -1,7 +1,7 @@
 # Maintainer: lsfxz <lsfxz at pfho dot net>
 pkgname=qabel-desktop-git
 _pkgname=qabel-desktop
-pkgver=0.9.1.beta.3.r24.ga12edcc
+pkgver=0.10.0.beta.3.r0.g16489b1
 pkgrel=1
 pkgdesc="Secure communication and cloud storage application"
 arch=(x86_64)
@@ -24,7 +24,7 @@ pkgver() {
 prepare() {
         cd "${srcdir}/${_pkgname}"
         patch -R -Np1 -i "${srcdir}/qabel-openfx-fix"
-        ./gradlew distZip -Dhttp.proxyHost=localhost -Dhttp.proxyPort=3128 -Dhttps.proxyHost=localhost -Dhttps.proxyPort=3128
+        ./gradlew distZip
         unzip build/distributions/qabel-desktop-linux_amd64-dev.zip -d "${srcdir}"
         cd "${srcdir}/qabel-desktop-linux_amd64-dev"
 }
