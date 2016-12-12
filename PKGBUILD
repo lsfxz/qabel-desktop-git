@@ -1,7 +1,7 @@
 # Maintainer : Christian Hofmann <chof@pfho.net>
 pkgname=qabel-desktop-git
 _pkgname=qabel-desktop
-pkgver=0.11.3.beta.3.r0.g6975588
+pkgver=0.11.3.beta.3.r7.g7a061d1
 pkgrel=1
 pkgdesc="Secure communication and cloud storage application"
 arch=(x86_64)
@@ -13,7 +13,7 @@ provides=('qabel-desktop')
 source=("git+https://github.com/Qabel/qabel-desktop.git"
         "qabel-desktop-ex")
 sha256sums=('SKIP'
-            'eb9bcb3ec084542889c704069d235152eb9bfac44d93bbdff7ca97e12912a145')
+            '929f0261b3f159bd3d83e0d456af24a54677a3749e39bb0c5f06ec232b7d6d47')
 pkgver() {
   cd "$_pkgname"
   git describe --long --tags | sed 's/\([^-]*-g\)/r\1/;s/-/./g'

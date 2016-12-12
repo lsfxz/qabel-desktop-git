@@ -2,7 +2,7 @@
 
 QABEL_HOME="/usr/share/java/qabel-desktop"
 JAPP_HOME="/usr/lib/jvm/default-runtime"
-DEFAULT_JVM_OPTS="-Djdk.launcher.addmods=javafx.deploy -Djava.library.path=${JAPP_HOME}/lib:${QABEL_HOME}"
+DEFAULT_JVM_OPTS="-Djava.library.path=${JAPP_HOME}/lib:${QABEL_HOME}"
 APP_NAME="qabel-desktop"
 
 for name in /usr/share/java/${APP_NAME}/*.jar ; do
